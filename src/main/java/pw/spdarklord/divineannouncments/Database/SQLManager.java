@@ -28,6 +28,7 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("CREATE TABLE IF NOT EXISTS Messages (ID int(25) NOT NULL AUTO_INCREMENT PRIMARY KEY, Message VARCHAR (255))");
             ps.executeUpdate();
+            DivineAnnouncments.getInstance().getLogger().info("Database Table has been created!");
         }catch (SQLException e){
             e.printStackTrace();
             DivineAnnouncments.instance.getLogger().severe("Failed to create table");
