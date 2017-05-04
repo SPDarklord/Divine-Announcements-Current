@@ -26,8 +26,8 @@ public class SQLManager {
         PreparedStatement ps = null;
         try{
             conn = pool.getConnection();
-            ps = conn.prepareStatement("CREATE TABLE IF NOT EXISTS 'Messages'" + "(" + "ID int NOT NULL AUTO_INCREMENT, Message VARCHAR (255), Enabled BOOLEAN()" + ")");
-
+            ps = conn.prepareStatement("CREATE TABLE IF NOT EXISTS Messages (ID int(25) NOT NULL AUTO_INCREMENT PRIMARY KEY, Message VARCHAR (255))");
+            ps.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
             DivineAnnouncments.instance.getLogger().severe("Failed to create table");
