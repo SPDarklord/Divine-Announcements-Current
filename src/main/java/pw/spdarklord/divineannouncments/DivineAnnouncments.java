@@ -1,9 +1,11 @@
 package pw.spdarklord.divineannouncments;
 
 
+import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 import pw.spdarklord.divineannouncments.Database.SQLManager;
+import pw.spdarklord.divineannouncments.DebugCode.Commands;
 import pw.spdarklord.divineannouncments.Utils.BungeeUtils;
 
 /**
@@ -28,6 +30,7 @@ public class DivineAnnouncments extends Plugin implements Listener {
         getProxy().getLogger().info("DivineAnnouncments Online");
         initDatabase();
         getProxy().getPluginManager().registerListener(this, this);
+        getProxy().getPluginManager().registerCommand(this, new Commands("getMessage"));
     }
 
     @Override
