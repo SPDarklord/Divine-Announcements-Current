@@ -1,10 +1,12 @@
 package pw.spdarklord.divineannouncments.Database;
 
+import net.md_5.bungee.BungeeCord;
 import pw.spdarklord.divineannouncments.DivineAnnouncments;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.logging.Level;
 
 /**
  * Created by Thomas on 20/04/2017.
@@ -28,7 +30,7 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("CREATE TABLE IF NOT EXISTS Messages (ID int(25) NOT NULL AUTO_INCREMENT PRIMARY KEY, Message VARCHAR (255))");
             ps.executeUpdate();
-            DivineAnnouncments.getInstance().getLogger().info("Database Table has been created!");
+            BungeeCord.getInstance().getLogger().log(Level.FINEST, "Table created");
         }catch (SQLException e){
             e.printStackTrace();
             DivineAnnouncments.instance.getLogger().severe("Failed to create table");
