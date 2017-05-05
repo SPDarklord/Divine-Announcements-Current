@@ -53,7 +53,29 @@ public class MessageHandler {
         pool = new ConnectionPoolManager(DivineAnnouncments.getInstance());
         Connection conn = null;
         PreparedStatement ps = null;
+        try{
+            ps = conn.prepareStatement("INSERT INTO Message VALUES (" + message +")");
+            ps.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            pool.close(conn,ps, null);
+        }
 
+
+    }
+
+    public void insertMessageID(String message, Integer id){
+        pool = new ConnectionPoolManager(DivineAnnouncments.getInstance());
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try{
+            ps = conn.prepareStatement("INSERT INTO Message (ID, Message) VALUES ("+ id + message + ")");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            pool.close(conn, ps, null);
+        }
     }
 }
 
