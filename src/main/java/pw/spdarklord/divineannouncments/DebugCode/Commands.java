@@ -11,8 +11,8 @@ import pw.spdarklord.divineannouncments.Database.MessageHandler;
  */
 public class Commands extends Command{
 
-    public Commands(String name) {
-        super("getMessage");
+    public Commands() {
+        super("getmessage");
     }
 
     public void execute(CommandSender commandSender, String[] strings) {

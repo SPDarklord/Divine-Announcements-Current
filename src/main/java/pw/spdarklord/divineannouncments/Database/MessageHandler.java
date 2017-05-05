@@ -1,13 +1,11 @@
 package pw.spdarklord.divineannouncments.Database;
 
-import net.md_5.bungee.BungeeCord;
 import pw.spdarklord.divineannouncments.DivineAnnouncments;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.GregorianCalendar;
 import java.util.logging.Level;
 
 /**
@@ -36,7 +34,12 @@ public class MessageHandler {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT Message FROM Messages WHERE ID=" + MessageID + "");
             results = ps.executeQuery();
-            BungeeCord.getInstance().getLogger().log(Level.FINE, results.getString("Message"));
+            while (results.next()){
+                String message = results.getString("Message");
+                String messages2 = results.getString(1);
+                DivineAnnouncments.getInstance().getProxy().getLogger().log(Level.FINE, messages2);
+                DivineAnnouncments.getInstance().getProxy().getLogger().log(Level.FINE, message);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
