@@ -7,6 +7,7 @@ import pw.spdarklord.divineannouncments.Database.SQLManager;
 import pw.spdarklord.divineannouncments.DebugCode.AddToDatabase;
 import pw.spdarklord.divineannouncments.DebugCode.Commands;
 import pw.spdarklord.divineannouncments.DebugCode.TestMessageSend;
+import pw.spdarklord.divineannouncments.Runnables.Timer;
 
 /**
  * Created by torsb_000 on 13/01/2017.
@@ -33,6 +34,7 @@ public class DivineAnnouncments extends Plugin implements Listener {
         getProxy().getPluginManager().registerListener(this, this);
         TestMessageSend.testBroadcast();
         AddToDatabase.addToDatabase();
+        Timer.runTimer();
 
     }
 
