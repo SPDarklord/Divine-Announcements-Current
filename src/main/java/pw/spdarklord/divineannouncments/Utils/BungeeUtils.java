@@ -36,8 +36,8 @@ public class BungeeUtils {
         }
     }
 
-    private void broadcastToBukkit(ByteArrayDataOutput Bado) {
-        byte[] Dataout = bado.toByteArray();
+    private void broadcastToBukkit(ByteArrayDataOutput out) {
+        byte[] Dataout = out.toByteArray();
         for (Map.Entry<String, ServerInfo> e : DivineAnnouncments.getInstance().getProxy().getServers().entrySet()) {
             ((ServerInfo) e.getValue()).sendData("BungeeCord", Dataout);
         }
