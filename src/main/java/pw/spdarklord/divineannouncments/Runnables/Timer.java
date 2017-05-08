@@ -1,6 +1,5 @@
 package pw.spdarklord.divineannouncments.Runnables;
 
-import io.netty.handler.logging.LogLevel;
 import pw.spdarklord.divineannouncments.DivineAnnouncments;
 
 import java.util.concurrent.TimeUnit;
