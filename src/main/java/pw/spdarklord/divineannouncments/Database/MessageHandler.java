@@ -54,7 +54,9 @@ public class MessageHandler {
         Connection conn = null;
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("INSERT INTO Message VALUES (" + message +")");
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("INSERT INTO Messages VALUES (null, ?)");
+            ps.setString(1, message);
             ps.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
