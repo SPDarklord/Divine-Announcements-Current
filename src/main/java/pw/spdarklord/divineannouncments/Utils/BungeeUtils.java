@@ -25,7 +25,7 @@ public class BungeeUtils {
         return instance;
     }
 
-    public void sendToBungee(String string) {
+    public void sendMessageToSpigot(String string) {
         try {
             ByteArrayDataOutput out = ByteStreams.newDataOutput();
             out.writeUTF("MessageToBroadcast");
