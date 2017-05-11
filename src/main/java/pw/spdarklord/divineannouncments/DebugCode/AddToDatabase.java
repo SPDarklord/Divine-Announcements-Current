@@ -8,8 +8,10 @@ import pw.spdarklord.divineannouncments.Database.SQLManager;
  */
 public class AddToDatabase {
 
+    //Debug code to add test 3 to the database
     public static void addToDatabase(){
         String message = "Test 3";
+        //Call method to add to database
         MessageHandler.getInstance().insertMessage(message);
     }
 

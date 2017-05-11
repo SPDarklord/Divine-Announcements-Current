@@ -6,6 +6,7 @@ import net.md_5.bungee.api.config.ServerInfo;
 import pw.spdarklord.divineannouncments.DivineAnnouncments;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -32,6 +33,19 @@ public class BungeeUtils {
             out.writeUTF(string);
             broadcastToBukkit(out);
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendMessageToServer(String name, String data, String user, boolean allMessages){
+        try{
+            DivineAnnouncments.getInstance().getLogger().info("Sending message to spigot");
+            ByteArrayDataOutput out = ByteStreams.newDataOutput();
+            out.writeUTF("MessageTo" + name);
+            out.writeUTF(data);
+            out.writeUTF(user);
+            broadcastToBukkit(out);
+        }catch (Exception e){
             e.printStackTrace();
         }
     }
